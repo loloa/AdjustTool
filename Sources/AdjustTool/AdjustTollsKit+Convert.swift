@@ -11,8 +11,8 @@ extension AdjustToolsKit {
    
     func testfunction(){
         //print
-        var a = 3
-        // test
+        var a = 10
+        
      }
     
     // dont know how to convert
