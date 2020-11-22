@@ -36,7 +36,7 @@ extension UIColor
     }
 }
 
-class MultiBandHSV: CIFilter
+ class MultiBandHSV: CIFilter
 {
     let multiBandHSVKernel: CIColorKernel =
     {

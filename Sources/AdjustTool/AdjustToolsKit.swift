@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-typealias SliderConfiguration = (min: Float, max: Float, startValue: Float, valueName: String)
+public typealias SliderConfiguration = (min: Float, max: Float, startValue: Float, valueName: String)
 
 struct HSLDataModel {
     var lastShiftHueValue: CGFloat?
@@ -32,9 +32,9 @@ public class AdjustToolsKit {
     
     // MARK: - APPLY
     
-    typealias toolKitComplition = ( _ img: UIImage,  _ userInfo: [AnyHashable: Any]?) -> Void
+    public typealias toolKitComplition = ( _ img: UIImage,  _ userInfo: [AnyHashable: Any]?) -> Void
     
-     func applyAdjustTool(uiImage: UIImage, withAmount intensity: Float, type: AdjustActionType?, hueColor: HueColor? = nil, complition: @escaping toolKitComplition) {
+    public func applyAdjustTool(uiImage: UIImage, withAmount intensity: Float, type: AdjustActionType?, hueColor: HueColor? = nil, complition: @escaping toolKitComplition) {
         
         guard let editType = type,
               let img = CIImage(image: uiImage) else {

@@ -10,7 +10,7 @@ import UIKit
 
 extension AdjustToolsKit {
     
-    func exposureFilter(img: CIImage, withAmount intensity: Float) -> CIImage {
+   public func exposureFilter(img: CIImage, withAmount intensity: Float) -> CIImage {
       
         guard let filter = CIFilter(name: "CIExposureAdjust") else {return img}
         filter.setValue(img, forKey: kCIInputImageKey)
@@ -18,7 +18,7 @@ extension AdjustToolsKit {
         return (filter.outputImage)!
     }
     
-     func contrastFilter(img: CIImage, withAmount intensity: Float) -> CIImage {
+    public func contrastFilter(img: CIImage, withAmount intensity: Float) -> CIImage {
        
         guard let filter = CIFilter(name: "CIColorControls") else {return img}
         filter.setValue(img, forKey: kCIInputImageKey)
@@ -26,7 +26,7 @@ extension AdjustToolsKit {
         return (filter.outputImage)!
     }
     
-     func brightnessFilter(img: CIImage, withAmount intensity: Float) -> CIImage {
+    public func brightnessFilter(img: CIImage, withAmount intensity: Float) -> CIImage {
         
         guard let filter = CIFilter(name: "CIColorControls") else {return img}
         filter.setValue(img, forKey: kCIInputImageKey)
@@ -34,7 +34,7 @@ extension AdjustToolsKit {
         return (filter.outputImage)!
     }
     
-     func fadeFilter(img: CIImage, withAmount intensity: Float) -> CIImage {
+    public func fadeFilter(img: CIImage, withAmount intensity: Float) -> CIImage {
        
         guard let filter = CIFilter(name: "CIColorControls") else {return img}
         filter.setValue(img, forKey: kCIInputImageKey)
@@ -42,7 +42,7 @@ extension AdjustToolsKit {
         return (filter.outputImage)!
     }
  
-     func saturationFilter(img: CIImage, withAmount intensity: Float) -> CIImage {
+    public func saturationFilter(img: CIImage, withAmount intensity: Float) -> CIImage {
       
         guard let filter = CIFilter(name: "CIColorControls") else {return img}
         filter.setValue(img, forKey: kCIInputImageKey)
@@ -50,7 +50,7 @@ extension AdjustToolsKit {
         return (filter.outputImage)!
     }
     
-     func sharpnessFilter(img: CIImage, withAmount intensity: Float) -> CIImage {
+    public func sharpnessFilter(img: CIImage, withAmount intensity: Float) -> CIImage {
        
         guard let filter = CIFilter(name: "CISharpenLuminance") else {return img}
         filter.setValue(img, forKey: kCIInputImageKey)
@@ -58,7 +58,7 @@ extension AdjustToolsKit {
         return (filter.outputImage)!
     }
     
-     func vignetteFilter(img: CIImage, withAmount intensity: Float) -> CIImage {
+    public func vignetteFilter(img: CIImage, withAmount intensity: Float) -> CIImage {
        
         guard let filter = CIFilter(name: "CIVignette") else {return img}
         filter.setValue(img, forKey: kCIInputImageKey)
@@ -66,7 +66,7 @@ extension AdjustToolsKit {
         return (filter.outputImage)!
     }
     
-     func highlightFilter(img: CIImage, withAmount intensity: Float) -> CIImage {
+    public func highlightFilter(img: CIImage, withAmount intensity: Float) -> CIImage {
        
         guard let filter = CIFilter(name: "CIHighlightShadowAdjust") else {return img}
         filter.setValue(img, forKey: kCIInputImageKey)
@@ -74,7 +74,7 @@ extension AdjustToolsKit {
         return (filter.outputImage)!
     }
     
-     func temperatureFilter(img: CIImage, withAmount intensity: Float) -> CIImage {
+    public func temperatureFilter(img: CIImage, withAmount intensity: Float) -> CIImage {
         // light in Lelvins
         //print("Temperature intensity \(intensity)")
         guard let filter = CIFilter(name: "CITemperatureAndTint") else {return img}
@@ -84,7 +84,7 @@ extension AdjustToolsKit {
         return (filter.outputImage)!
     }
     
-     func tintFilter(img: CIImage, withAmount intensity: Float) -> CIImage {
+    public func tintFilter(img: CIImage, withAmount intensity: Float) -> CIImage {
         
         guard let filter = CIFilter(name: "CITemperatureAndTint") else {return img}
         filter.setValue(img, forKey: kCIInputImageKey)
@@ -93,7 +93,7 @@ extension AdjustToolsKit {
         return (filter.outputImage)!
     }
     
-     func shadowFilter(img: CIImage, withAmount intensity: Float) -> CIImage {
+    public func shadowFilter(img: CIImage, withAmount intensity: Float) -> CIImage {
         
        
         guard let filter = CIFilter(name: "CIHighlightShadowAdjust") else {return img}
@@ -102,7 +102,7 @@ extension AdjustToolsKit {
         return (filter.outputImage)!
     }
  
-     func grainFilter(img: CIImage, withAmount intensity: Float) -> CIImage {
+    public func grainFilter(img: CIImage, withAmount intensity: Float) -> CIImage {
  
         let coloredNoise = CIFilter(name:"CIRandomGenerator")
         let noiseImage = coloredNoise?.outputImage
@@ -148,7 +148,7 @@ extension AdjustToolsKit {
         
     }
  
-     func coloredFilter(img: CIImage, withAmount intensity: Float, color: UIColor) -> CIImage {
+    public func coloredFilter(img: CIImage, withAmount intensity: Float, color: UIColor) -> CIImage {
         
         
         guard  let colorMatrix = CIFilter(name: "CIColorMatrix")
@@ -175,7 +175,7 @@ extension AdjustToolsKit {
         return speckledImage!//colorMatrix.outputImage!
     }
     
-     func skinToneFilter(img: CIImage, withAmount intensity: Float) -> CIImage {
+    public func skinToneFilter(img: CIImage, withAmount intensity: Float) -> CIImage {
         
         guard let filter = CIFilter(name: "CIHueAdjust") else {return img}
         filter.setValue(img, forKey: kCIInputImageKey)
@@ -183,12 +183,12 @@ extension AdjustToolsKit {
         return (filter.outputImage)!
     }
     
-     func deg2rad(_ number: Double) -> Double {
+    public func deg2rad(_ number: Double) -> Double {
         return number * .pi / 180
     }
     
     
-     func HSLHueFilter(img: CIImage, withAmount intensity: Float, hueColour: HueColor? = .red) -> CIImage {
+    public func HSLHueFilter(img: CIImage, withAmount intensity: Float, hueColour: HueColor? = .red) -> CIImage {
         
         let filter = MultiBandHSV()
         filter.inputImage = img
@@ -223,7 +223,7 @@ extension AdjustToolsKit {
         return filter.outputImage!
      }
     
-     func HSLSaturationFilter(img: CIImage, withAmount intensity: Float, hueColour: HueColor? = .red) -> CIImage {
+    public func HSLSaturationFilter(img: CIImage, withAmount intensity: Float, hueColour: HueColor? = .red) -> CIImage {
         
         let filter = MultiBandHSV()
         filter.inputImage = img
@@ -256,7 +256,7 @@ extension AdjustToolsKit {
         return filter.outputImage!
     }
     
-     func HSLLuminenceFilter(img: CIImage, withAmount intensity: Float, hueColour: HueColor? = .red) -> CIImage {
+    public func HSLLuminenceFilter(img: CIImage, withAmount intensity: Float, hueColour: HueColor? = .red) -> CIImage {
         
         let filter = MultiBandHSV()
         filter.inputImage = img
@@ -287,7 +287,7 @@ extension AdjustToolsKit {
         return filter.outputImage!
      }
  
-     func vibranceFilter(img: CIImage, withAmount intensity: Float) -> CIImage {
+    public func vibranceFilter(img: CIImage, withAmount intensity: Float) -> CIImage {
       
         guard let filter = CIFilter(name: "CIVibrance") else {return img}
         filter.setValue(img, forKey: kCIInputImageKey)

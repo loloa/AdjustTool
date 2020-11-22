@@ -25,7 +25,7 @@ public enum HueColor: Int {
     
     case red = 1, orange = 2, yellow = 3, green = 4, blue = 5, magenta = 6
     
-    var colour: UIColor {
+    public var colour: UIColor {
         
         switch self {
         case .red:
@@ -43,13 +43,13 @@ public enum HueColor: Int {
          }
     }
     
-    var colourWithHue: UIColor {
+    public var colourWithHue: UIColor {
          return UIColor(hue: CGFloat(self.midSpecotor), saturation: CGFloat(1), brightness: CGFloat(0), alpha: CGFloat(1))
     }
     
     //
     
-    var minSpecotor : Float {
+    public var minSpecotor : Float {
         
         // slider 0 - 100 , 0-1
         let step: CGFloat = 100 / 360
@@ -69,7 +69,7 @@ public enum HueColor: Int {
          }
     }
     
-    var maxSpecotor : Float {
+    public var maxSpecotor : Float {
         
         // slider 0 - 100 , 0-1
         let step: CGFloat = 100 / 360
@@ -89,7 +89,7 @@ public enum HueColor: Int {
          }
     }
     
-    var midSpecotor : Float {
+    public var midSpecotor : Float {
         
         // slider 0 - 100 , 0-1
         let step: CGFloat = 100 / 360
