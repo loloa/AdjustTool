@@ -12,7 +12,7 @@ import UIKit
 
 public typealias SliderConfiguration = (min: Float, max: Float, startValue: Float, valueName: String)
 
-struct HSLDataModel {
+public struct HSLDataModel {
     var lastShiftHueValue: CGFloat?
     var lastSaturationHueValue: CGFloat?
     var lastLuminanceValue: CGFloat?
@@ -22,11 +22,11 @@ struct HSLDataModel {
 public class AdjustToolsKit {
  
   public init() {}
-   private lazy var context: CIContext = {
+   public lazy var context: CIContext = {
         return CIContext(options:nil)
     }()
     
-   internal lazy var hslDataMode = {
+   public lazy var hslDataMode = {
         return HSLDataModel()
     }()
     

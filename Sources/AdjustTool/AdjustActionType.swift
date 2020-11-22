@@ -151,7 +151,7 @@ public enum AdjustActionType: String {
 
 
 
-class EditAction: Equatable {
+public class EditAction: Equatable {
     
     var type: AdjustActionType = .None
     var isSelected: Bool = false
@@ -161,7 +161,7 @@ class EditAction: Equatable {
         type = actionType
     }
     
-    static func == (lhs: EditAction, rhs: EditAction) -> Bool {
+   public static func == (lhs: EditAction, rhs: EditAction) -> Bool {
         return lhs.type == rhs.type
     }
     
