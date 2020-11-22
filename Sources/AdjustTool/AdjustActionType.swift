@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-enum AdjustActionType: String {
+public enum AdjustActionType: String {
  
     //Adjust photo
     case None = "None"

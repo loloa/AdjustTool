@@ -10,7 +10,7 @@ import UIKit
 
 extension AdjustToolsKit {
     
-    static func convert(value: Float, for editAction: AdjustActionType, heu: HueColor? = nil) -> Int {
+static func convert(value: Float, for editAction: AdjustActionType, heu: HueColor? = nil) -> Int {
     //static func convert(value: Float, for editAction: AdjustActionType, heu: HueColor? = nil) -> Float {
         
         let tupel = AdjustToolsKit().configureSliderValues(for: editAction, hue: heu)

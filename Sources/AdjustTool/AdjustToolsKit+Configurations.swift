@@ -10,7 +10,6 @@ import UIKit
 
 extension AdjustToolsKit {
     
-    
     func configureSliderValues(for editAction: AdjustActionType?, hue: HueColor?) -> SliderConfiguration {
         
         var tupel = SliderConfiguration(min: Float(0), max: Float(0), startValue: Float(0), valueName: "")

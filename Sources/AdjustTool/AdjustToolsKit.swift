@@ -19,7 +19,7 @@ struct HSLDataModel {
 }
 
 
-class AdjustToolsKit {
+public class AdjustToolsKit {
  
    private lazy var context: CIContext = {
         return CIContext(options:nil)
