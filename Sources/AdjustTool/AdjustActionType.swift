@@ -35,7 +35,7 @@ public enum AdjustActionType: String {
     case HSL_Luminance = "HSL_Luminance"
     
     
-    var description: String {
+   public var description: String {
         
         switch self {
         case .None:
