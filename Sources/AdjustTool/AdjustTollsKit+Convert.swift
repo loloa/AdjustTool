@@ -12,11 +12,12 @@ extension AdjustToolsKit {
     
 public static func convert(value: Float, for editAction: AdjustActionType, heu: HueColor? = nil) -> Int {
  
-        let tupel = AdjustToolsKit().configureTool(for: editAction, hue: heu)
+    let tupel = AdjustToolsKit().configureTool(for: editAction, hue: heu)
   
-        if value == tupel.startValue {
-            return 0
-        }
+    if value == tupel.startValue { return 0 }
+    if value == tupel.max { return 100 }
+    if value == tupel.min { return -100 }
+ 
         if value > tupel.startValue {
             let v = ((value - tupel.startValue) * 100.0) / (tupel.max - tupel.startValue)
             return Int(v)
