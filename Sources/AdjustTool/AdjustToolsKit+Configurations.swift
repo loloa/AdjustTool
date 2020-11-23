@@ -10,9 +10,9 @@ import UIKit
 
 extension AdjustToolsKit {
     
-    public func configureSliderValues(for editAction: AdjustActionType?, hue: HueColor?) -> SliderConfiguration {
+    public func configureTool(for editAction: AdjustActionType?, hue: HueColor?) -> AdjustToolConfiguration {
         
-        var tupel = SliderConfiguration(min: Float(0), max: Float(0), startValue: Float(0), valueName: "")
+        var tupel = AdjustToolConfiguration(min: Float(0), max: Float(0), startValue: Float(0), valueName: "", zoomRecomended: false)
         guard let editType = editAction else { return tupel }
         
         switch editType {
@@ -128,6 +128,7 @@ extension AdjustToolsKit {
             tupel.max = 1.0
             tupel.startValue = 0.0
             tupel.valueName = "alpha"
+            tupel.zoomRecomended = true
             
         case .Shadow:
             /*
@@ -187,6 +188,7 @@ extension AdjustToolsKit {
             tupel.max = 2.4
             tupel.startValue = 0.4
             tupel.valueName = "sharpness"
+            tupel.zoomRecomended = true
             
         case .HueSkinTone:
             /*

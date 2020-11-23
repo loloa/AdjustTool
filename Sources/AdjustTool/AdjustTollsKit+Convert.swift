@@ -11,10 +11,9 @@ import UIKit
 extension AdjustToolsKit {
     
 public static func convert(value: Float, for editAction: AdjustActionType, heu: HueColor? = nil) -> Int {
-    //static func convert(value: Float, for editAction: AdjustActionType, heu: HueColor? = nil) -> Float {
-        
-        let tupel = AdjustToolsKit().configureSliderValues(for: editAction, hue: heu)
-        
+ 
+        let tupel = AdjustToolsKit().configureTool(for: editAction, hue: heu)
+  
         if value == tupel.startValue {
             return 0
         }
@@ -44,18 +43,6 @@ public static func convert(value: Float, for editAction: AdjustActionType, heu: 
         }
         
         return Int(value)
-        
-        
-//
-//        if tupel.startValue == 0.0 {
-//            let v = Int((value * 100) / tupel.max)
-//            return v
-//        } else if tupel.startValue > 0.0 {
-//            let v = Int((value * 100) / (tupel.max - tupel.startValue))
-//            return v
-//        } else {
-//            let v = Int((value * 100) / ( tupel.startValue - tupel.max))
-//            return v
-//        }
+   
     }
 }

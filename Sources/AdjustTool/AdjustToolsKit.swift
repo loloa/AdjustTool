@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-public typealias SliderConfiguration = (min: Float, max: Float, startValue: Float, valueName: String)
+public typealias AdjustToolConfiguration = (min: Float, max: Float, startValue: Float, valueName: String, zoomRecomended: Bool)
 
 public struct HSLDataModel {
     var lastShiftHueValue: CGFloat?
