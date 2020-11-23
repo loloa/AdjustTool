@@ -12,7 +12,7 @@ extension AdjustToolsKit {
     
     public func configureTool(for editAction: AdjustActionType?, hue: HueColor? = nil) -> AdjustToolConfiguration {
         
-        var tupel = AdjustToolConfiguration(min: Float(0), max: Float(0), startValue: Float(0), valueName: "", zoomRecomended: false)
+        var tupel = AdjustToolConfiguration(min: Float(0), max: Float(0), startValue: Float(0), valueName: "", zoomRecomended: false, composed: false)
         guard let editType = editAction else { return tupel }
         
         switch editType {
@@ -251,8 +251,9 @@ extension AdjustToolsKit {
         case .HSL:
             
             tupel.min = 0.0
-            tupel.max = 1.0
-            tupel.startValue = 0.5
+            tupel.max = 0.0
+            tupel.startValue = 0.0
+            tupel.composed = true
             tupel.valueName = "hsl"
             
         case .HSL_Saturation:
