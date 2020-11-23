@@ -9,8 +9,8 @@ import Foundation
 
 public class EditAction: Equatable {
     
-    var type: AdjustActionType = .None
-    var isSelected: Bool = false
+   public var type: AdjustActionType = .None
+   public var isSelected: Bool = false
     //var intensity: Float = 0
     
    public init( actionType: AdjustActionType) {
