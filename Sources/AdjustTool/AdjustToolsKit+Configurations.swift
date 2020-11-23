@@ -10,7 +10,7 @@ import UIKit
 
 extension AdjustToolsKit {
     
-    public func configureTool(for editAction: AdjustActionType?, hue: HueColor?) -> AdjustToolConfiguration {
+    public func configureTool(for editAction: AdjustActionType?, hue: HueColor? = nil) -> AdjustToolConfiguration {
         
         var tupel = AdjustToolConfiguration(min: Float(0), max: Float(0), startValue: Float(0), valueName: "", zoomRecomended: false)
         guard let editType = editAction else { return tupel }
