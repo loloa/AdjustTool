@@ -13,7 +13,7 @@ public class EditAction: Equatable {
     var isSelected: Bool = false
     //var intensity: Float = 0
     
-    init( actionType: AdjustActionType) {
+   public init( actionType: AdjustActionType) {
         type = actionType
     }
     
