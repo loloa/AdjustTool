@@ -242,9 +242,18 @@ extension AdjustToolsKit {
             
         case .HSL_Hue:
             
-            tupel.min = hue!.minSpecotor
-            tupel.max = hue!.maxSpecotor
-            tupel.startValue = hue!.midSpecotor
+            guard let hueParam = hue else {
+                tupel.min = 0.0
+                tupel.max = 1.0
+                tupel.startValue = 0.0
+                tupel.valueName = "hsl h"
+                hslDataMode.lastShiftHueValue  = CGFloat(tupel.startValue)
+                print("WARNINF: Missing parameter: hue value for HSL hues configuration")
+                return tupel
+            }
+            tupel.min = hueParam.minSpecotor
+            tupel.max = hueParam.maxSpecotor
+            tupel.startValue = hueParam.midSpecotor
             tupel.valueName = "hsl h"
             hslDataMode.lastShiftHueValue  = CGFloat(tupel.startValue)
  
