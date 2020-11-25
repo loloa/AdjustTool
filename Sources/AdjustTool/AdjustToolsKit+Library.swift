@@ -10,8 +10,8 @@ import UIKit
 
 extension AdjustToolsKit {
     
-   public func exposureFilter(img: CIImage, withAmount intensity: Float) -> CIImage {
-      
+    public func exposureFilter(img: CIImage, withAmount intensity: Float) -> CIImage {
+        
         guard let filter = CIFilter(name: "CIExposureAdjust") else {return img}
         filter.setValue(img, forKey: kCIInputImageKey)
         filter.setValue(NSNumber(value: intensity), forKey: kCIInputEVKey)
@@ -19,7 +19,7 @@ extension AdjustToolsKit {
     }
     
     public func contrastFilter(img: CIImage, withAmount intensity: Float) -> CIImage {
-       
+        
         guard let filter = CIFilter(name: "CIColorControls") else {return img}
         filter.setValue(img, forKey: kCIInputImageKey)
         filter.setValue(NSNumber(value: intensity), forKey: kCIInputContrastKey)
@@ -35,15 +35,15 @@ extension AdjustToolsKit {
     }
     
     public func fadeFilter(img: CIImage, withAmount intensity: Float) -> CIImage {
-       
+        
         guard let filter = CIFilter(name: "CIColorControls") else {return img}
         filter.setValue(img, forKey: kCIInputImageKey)
         filter.setValue(NSNumber(value: 2 - intensity), forKey: kCIInputContrastKey)
         return (filter.outputImage)!
     }
- 
+    
     public func saturationFilter(img: CIImage, withAmount intensity: Float) -> CIImage {
-      
+        
         guard let filter = CIFilter(name: "CIColorControls") else {return img}
         filter.setValue(img, forKey: kCIInputImageKey)
         filter.setValue(NSNumber(value: intensity), forKey: kCIInputSaturationKey)
@@ -51,7 +51,7 @@ extension AdjustToolsKit {
     }
     
     public func sharpnessFilter(img: CIImage, withAmount intensity: Float) -> CIImage {
-       
+        
         guard let filter = CIFilter(name: "CISharpenLuminance") else {return img}
         filter.setValue(img, forKey: kCIInputImageKey)
         filter.setValue(NSNumber(value: intensity), forKey: kCIInputSharpnessKey)
@@ -59,7 +59,7 @@ extension AdjustToolsKit {
     }
     
     public func vignetteFilter(img: CIImage, withAmount intensity: Float) -> CIImage {
-       
+        
         guard let filter = CIFilter(name: "CIVignette") else {return img}
         filter.setValue(img, forKey: kCIInputImageKey)
         filter.setValue(NSNumber(value: intensity), forKey: kCIInputIntensityKey)
@@ -67,7 +67,7 @@ extension AdjustToolsKit {
     }
     
     public func highlightFilter(img: CIImage, withAmount intensity: Float) -> CIImage {
-       
+        
         guard let filter = CIFilter(name: "CIHighlightShadowAdjust") else {return img}
         filter.setValue(img, forKey: kCIInputImageKey)
         filter.setValue(NSNumber(value: intensity), forKey: "inputHighlightAmount")
@@ -95,15 +95,15 @@ extension AdjustToolsKit {
     
     public func shadowFilter(img: CIImage, withAmount intensity: Float) -> CIImage {
         
-       
+        
         guard let filter = CIFilter(name: "CIHighlightShadowAdjust") else {return img}
         filter.setValue(img, forKey: kCIInputImageKey)
         filter.setValue(NSNumber(value: intensity), forKey: "inputShadowAmount")
         return (filter.outputImage)!
     }
- 
+    
     public func grainFilter(img: CIImage, withAmount intensity: Float) -> CIImage {
- 
+        
         let coloredNoise = CIFilter(name:"CIRandomGenerator")
         let noiseImage = coloredNoise?.outputImage
         
@@ -114,7 +114,7 @@ extension AdjustToolsKit {
         filter?.setValue(1.0, forKey: "inputIntensity")
         guard let outputImage = filter?.outputImage else { return img}
         
- 
+        
         var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0
         UIColor.white.getRed(&r, green: &g, blue: &b, alpha: &a)
         
@@ -125,7 +125,7 @@ extension AdjustToolsKit {
         colorMatrix.setValue(CIVector(x: 0, y: g, z: 0, w: 0), forKey: "inputGVector")
         colorMatrix.setValue(CIVector(x: 0, y: 0, z: b, w: 0), forKey: "inputBVector")
         colorMatrix.setValue(CIVector(x: 0, y: 0, z: 0, w: CGFloat(intensity)), forKey: "inputAVector")
- 
+        
         let darkScratches = colorMatrix.outputImage//grayscaleFilter?.outputImage
         
         let oldFilmCompositor = CIFilter(name:"CIMultiplyCompositing",
@@ -147,7 +147,7 @@ extension AdjustToolsKit {
         return (last?.outputImage)!
         
     }
- 
+    
     public func coloredFilter(img: CIImage, withAmount intensity: Float, color: UIColor) -> CIImage {
         
         
@@ -200,7 +200,7 @@ extension AdjustToolsKit {
         
         // print("---- intensity from slider \(intensity)")
         hue = fmod(CGFloat(intensity) - CGFloat(hue),1.0)//fmod(hue + CGFloat(delta),1.0)
-       // bgrV?.backgroundColor = UIColor(hue: CGFloat(intensity), saturation: saturation, brightness: brightness, alpha: 1)
+        // bgrV?.backgroundColor = UIColor(hue: CGFloat(intensity), saturation: saturation, brightness: brightness, alpha: 1)
         hslDataMode.lastShiftHueValue = hue
         
         switch hueColour {
@@ -217,11 +217,11 @@ extension AdjustToolsKit {
         case .blue:
             filter.inputBlueShift = CIVector(x:  hslDataMode.lastShiftHueValue!, y: hslDataMode.lastSaturationHueValue!, z: hslDataMode.lastLuminanceValue!)
         case .magenta:
-             filter.inputMagentaShift = CIVector(x:  hslDataMode.lastShiftHueValue!, y: hslDataMode.lastSaturationHueValue!, z: hslDataMode.lastLuminanceValue!)
+            filter.inputMagentaShift = CIVector(x:  hslDataMode.lastShiftHueValue!, y: hslDataMode.lastSaturationHueValue!, z: hslDataMode.lastLuminanceValue!)
         }
         
         return filter.outputImage!
-     }
+    }
     
     public func HSLSaturationFilter(img: CIImage, withAmount intensity: Float, hueColour: HueColor? = .red) -> CIImage {
         
@@ -234,7 +234,7 @@ extension AdjustToolsKit {
         hue =  CGFloat(hueColour!.midSpecotor)
         
         saturation = saturation + CGFloat(intensity)
- 
+        
         hslDataMode.lastSaturationHueValue = CGFloat(intensity)
         switch hueColour {
         case .red:
@@ -285,13 +285,54 @@ extension AdjustToolsKit {
             filter.inputMagentaShift = CIVector(x:  hslDataMode.lastShiftHueValue!, y: hslDataMode.lastSaturationHueValue!, z: CGFloat(intensity))
         }
         return filter.outputImage!
-     }
- 
+    }
+    
     public func vibranceFilter(img: CIImage, withAmount intensity: Float) -> CIImage {
-      
+        
         guard let filter = CIFilter(name: "CIVibrance") else {return img}
         filter.setValue(img, forKey: kCIInputImageKey)
         filter.setValue(NSNumber(value: intensity), forKey: "inputAmount")
         return (filter.outputImage)!
+    }
+    
+    
+     func changeFilterIntensity(_ originalImage: UIImage?,
+                                      filteredImage: UIImage?,
+                                      intensity: CGFloat ) -> UIImage? {
+        
+        guard let original = originalImage, let filtered = filteredImage else {
+            return originalImage
+        }
+        
+        guard let ciOriginal = CIImage(image: original) else { return original }
+        guard let ciFiltered = CIImage(image: filtered) else { return original }
+        var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0
+        UIColor.white.getRed(&r, green: &g, blue: &b, alpha: &a)
+        
+        guard let colorMatrix = CIFilter(name: "CIColorMatrix") else {return original}
+        colorMatrix.setDefaults()
+        colorMatrix.setValue(ciFiltered, forKey: "inputImage")
+        colorMatrix.setValue(CIVector(x: r, y: 0, z: 0, w: 0), forKey: "inputRVector")
+        colorMatrix.setValue(CIVector(x: 0, y: g, z: 0, w: 0), forKey: "inputGVector")
+        colorMatrix.setValue(CIVector(x: 0, y: 0, z: b, w: 0), forKey: "inputBVector")
+        colorMatrix.setValue(CIVector(x: 0, y: 0, z: 0, w: CGFloat(intensity)), forKey: "inputAVector")
+        
+        let last = CIFilter(name: "CISourceOverCompositing",
+                            parameters:
+                                [
+                                    kCIInputImageKey: colorMatrix.outputImage as Any,
+                                    kCIInputBackgroundImageKey: ciOriginal
+                                ])
+        
+        
+        
+        guard let outputImage = last?.outputImage,
+              let cgImage = context.createCGImage(outputImage, from: ciOriginal.extent) else {
+             return original
+        }
+        
+        let newImage = UIImage(cgImage: cgImage, scale:1, orientation: original.imageOrientation)
+        return newImage
+ 
     }
 }
