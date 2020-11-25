@@ -71,7 +71,7 @@ public enum AdjustActionType: String {
         case .HSL:
             return "HSL"
         case .HSL_Saturation:
-            return "Satuaration"
+            return "Saturation"
         case .HSL_Luminance:
             return "Lightness"
         case .Tint:
