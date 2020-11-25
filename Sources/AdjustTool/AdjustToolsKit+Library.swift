@@ -296,7 +296,7 @@ extension AdjustToolsKit {
     }
     
     
-    public func changeFilterIntensity(_ originalImage: UIImage?,
+    public func manageFilterIntensity(_ originalImage: UIImage?,
                                       filteredImage: UIImage?,
                                       intensity: CGFloat ) -> UIImage? {
         
