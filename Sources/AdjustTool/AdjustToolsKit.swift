@@ -37,7 +37,7 @@ public class AdjustToolsKit {
     // call that by mooving to work with other image
     
     @available(iOS 10.0, *)
-    public func clearAdjustToolKitCaches() {
+    public func clearContextCaches() {
         context.clearCaches()
      }
     
