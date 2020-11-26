@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+@available(iOS 10.0, *)
 extension AdjustToolsKit {
     
     public func exposureFilter(img: CIImage, withAmount intensity: Float) -> CIImage {

@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+@available(iOS 10.0, *)
 extension AdjustToolsKit {
     
     public func configureTool(for editAction: AdjustActionType?, hue: HueColor? = nil) -> AdjustToolConfiguration {

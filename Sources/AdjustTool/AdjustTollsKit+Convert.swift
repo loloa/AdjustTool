@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+@available(iOS 10.0, *)
 extension AdjustToolsKit {
     
 public static func convert(value: Float, for editAction: AdjustActionType, heu: HueColor? = nil) -> Int {

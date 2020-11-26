@@ -19,6 +19,8 @@ public struct HSLDataModel {
 }
 
 
+@available(iOS 10.0, *)
+@available(iOS 10.0, *)
 public class AdjustToolsKit {
  
   public init() {}
@@ -29,6 +31,15 @@ public class AdjustToolsKit {
    public lazy var hslDataMode = {
         return HSLDataModel()
     }()
+    
+    // MARK: -- Clear Caches
+    
+    // call that by mooving to work with other image
+    
+    @available(iOS 10.0, *)
+    public func clearAdjustToolKitCaches() {
+        context.clearCaches()
+     }
     
     // MARK: - APPLY
     
