@@ -39,7 +39,7 @@ public class AdjustToolsKit {
     @available(iOS 10.0, *)
     public func clearContextCaches() {
         context.clearCaches()
-        print(">>>>>> CIContext cleared caches")
+       // print(">>>>>> CIContext cleared caches")
      }
     
     // MARK: - APPLY

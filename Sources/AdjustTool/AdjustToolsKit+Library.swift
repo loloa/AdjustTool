@@ -301,9 +301,11 @@ extension AdjustToolsKit {
                                       filteredImage: UIImage?,
                                       intensity: CGFloat ) -> UIImage? {
         
-        guard let original = originalImage, let filtered = filteredImage else {
+        guard var original = originalImage, let filtered = filteredImage else {
             return originalImage
         }
+        
+        original = AdjustToolsKit.resizeImageIfNeeded(original, withSize: filtered.size.width)
         
         guard let ciOriginal = CIImage(image: original) else { return original }
         guard let ciFiltered = CIImage(image: filtered) else { return original }
