@@ -33,6 +33,7 @@ public enum AdjustActionType: String {
     case HSL_Hue = "HSL_Hue"
     case HSL_Saturation = "HSL_Saturation"
     case HSL_Luminance = "HSL_Luminance"
+    case FilterIntensity = "FilterIntensity"
     
     
    public var description: String {
@@ -78,7 +79,8 @@ public enum AdjustActionType: String {
             return "Tint"
         case .HSL_Hue:
             return "Hue"
-        
+        case .FilterIntensity:
+            return "Intensity"
         }
     }
     

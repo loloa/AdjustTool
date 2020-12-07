@@ -282,6 +282,14 @@ extension AdjustToolsKit {
             tupel.startValue = 1.0
             tupel.valueName = "hsl l"
             hslDataMode.lastLuminanceValue = CGFloat(tupel.startValue)
+            
+        case .FilterIntensity:
+            
+            tupel.min = 0.0
+            tupel.max = 1.0
+            tupel.startValue = 1.0
+            tupel.valueName = "intensity"
+            
           
         default:
             break
