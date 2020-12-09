@@ -245,8 +245,8 @@ extension AdjustToolsKit {
             
             guard let hueParam = hue else {
                 tupel.min = 0.0
-                tupel.max = 2.0
-                tupel.startValue = 1.0
+                tupel.max = 1.0
+                tupel.startValue = 0.0
                 tupel.valueName = "hsl h"
                 hslDataMode.lastShiftHueValue  = CGFloat(tupel.startValue)
                 print("WARNINF: Missing parameter: hue value for HSL hues configuration")
