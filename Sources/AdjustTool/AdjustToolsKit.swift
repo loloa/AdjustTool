@@ -31,6 +31,8 @@ public class AdjustToolsKit {
    public lazy var hslDataMode = {
         return HSLDataModel()
     }()
+    //used for convert
+   
     
     // MARK: -- Clear Caches
     
